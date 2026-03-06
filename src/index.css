@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 230 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 10%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 230 25% 20%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* ObserveNow custom tokens */
+    --cobalt: 221 83% 53%;
+    --cobalt-glow: 221 90% 62%;
+    --cobalt-deep: 221 80% 40%;
+    --obsidian: 230 25% 10%;
+    --obsidian-light: 230 15% 20%;
+    --obsidian-lighter: 230 12% 30%;
+    --glass: 220 20% 50%;
+    --glass-border: 220 13% 87%;
+    --cyan-accent: 190 90% 45%;
+    --violet-accent: 260 70% 55%;
+    --emerald: 160 84% 39%;
+    --orange-accent: 25 95% 60%;
+    --rose-accent: 350 80% 60%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53% / 0.08), hsl(260 70% 55% / 0.05), transparent);
+    --gradient-cobalt: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 90% 62%));
+    --gradient-violet: linear-gradient(135deg, hsl(260 70% 55%), hsl(280 80% 65%));
+    --gradient-emerald: linear-gradient(135deg, hsl(160 84% 39%), hsl(190 90% 45%));
+    --gradient-orange: linear-gradient(135deg, hsl(25 95% 60%), hsl(350 80% 60%));
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(0 0% 100% / 0.4));
+    --gradient-radial-cobalt: radial-gradient(circle at 50% 50%, hsl(221 83% 53% / 0.08), transparent 70%);
+    --gradient-text: linear-gradient(135deg, hsl(230 25% 10%), hsl(221 83% 53%));
+    --gradient-text-dark: linear-gradient(135deg, hsl(230 25% 10%), hsl(230 15% 30%));
+    --gradient-rainbow: linear-gradient(135deg, hsl(221 83% 53%), hsl(260 70% 55%), hsl(350 80% 60%), hsl(25 95% 60%));
+
+    --shadow-glow: 0 0 60px -10px hsl(221 83% 53% / 0.2);
+    --shadow-card: 0 4px 30px hsl(0 0% 0% / 0.06);
+    --shadow-card-hover: 0 20px 60px hsl(0 0% 0% / 0.1);
+    --shadow-violet: 0 10px 40px hsl(260 70% 55% / 0.15);
+    --shadow-emerald: 0 10px 40px hsl(160 84% 39% / 0.15);
+    --shadow-orange: 0 10px 40px hsl(25 95% 60% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 230 25% 10%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 230 25% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 221 83% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: hsl(0 0% 100% / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+  .glass-card-hover:hover {
+    border-color: hsl(var(--cobalt) / 0.2);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .glass-card-violet:hover {
+    border-color: hsl(var(--violet-accent) / 0.3);
+    box-shadow: var(--shadow-violet);
+  }
+
+  .glass-card-emerald:hover {
+    border-color: hsl(var(--emerald) / 0.3);
+    box-shadow: var(--shadow-emerald);
+  }
+
+  .glass-card-orange:hover {
+    border-color: hsl(var(--orange-accent) / 0.3);
+    box-shadow: var(--shadow-orange);
+  }
+
+  .text-gradient {
+    background: var(--gradient-text-dark);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cobalt {
+    background: var(--gradient-cobalt);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-violet {
+    background: var(--gradient-violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-emerald {
+    background: var(--gradient-emerald);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-orange {
+    background: var(--gradient-orange);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-rainbow {
+    background: var(--gradient-rainbow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--cobalt)), transparent);
+  }
+
+  .glow-line-rainbow {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--cobalt)), hsl(var(--violet-accent)), hsl(var(--orange-accent)), transparent);
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(circle, hsl(var(--glass) / 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24;
+  }
+
+  .colored-blob {
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    position: absolute;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .animate-float-delayed {
+    animation: float-delayed 7s ease-in-out infinite;
+  }
+
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  .animate-scale-breathe {
+    animation: scale-breathe 4s ease-in-out infinite;
+  }
+
+  @keyframes scale-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+}
